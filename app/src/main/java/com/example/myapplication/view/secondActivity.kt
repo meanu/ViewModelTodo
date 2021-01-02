@@ -25,7 +25,6 @@ class secondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.livedatarecyclerview)
 
-
         initRecyclerView()
         initAddButton()
         initViewModel()//observe 결합 코드는 oncreat 메소드내에 위치하는것이 바람직.
@@ -56,6 +55,7 @@ class secondActivity : AppCompatActivity() {
                     val title =dialogView.et_todo_title.text.toString()
                     val description = dialogView.et_todo_desc.text.toString()
                     val createdDate = Date().time
+
                     val todoModel  = TodoModel(null, title, description, createdDate)
                     //전달되면 ROOM에의해 삽입되면서 할당된다.
                     mTodoViewModel.insertTodo(todoModel)
