@@ -3,6 +3,7 @@ package com.example.myapplication.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -66,6 +67,18 @@ class secondActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
+        mTodoListAdapter = TodoListAdapter().apply {
+            listener = object: TodoListAdapter.OnTodoItemClickListener{
+                override fun onTodoItemClick(position: Int) {
+                    Toast.makeText(this@secondActivity, "itemClicked", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onTodoItemLongClick(position: Int) {
+                    Toast.makeText(this@secondActivity, "itemLONGClicked", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
         mTodoListAdapter = TodoListAdapter()
         rl_todo_list.run{
             setHasFixedSize(true)

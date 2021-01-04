@@ -2,9 +2,12 @@ package com.example.myapplication.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.example.myapplication.TodoDAO.TodoDAO
 import com.example.myapplication.TodoDAO.TodoDatabase
 import com.example.myapplication.model.TodoModel
+import io.reactivex.Observable
+import io.reactivex.schedulers.Schedulers
 
 class TodoRepository(application: Application) {
     private var mTodoDatabase: TodoDatabase
@@ -29,8 +32,13 @@ class TodoRepository(application: Application) {
     }
 
     fun insertTodo(todoModel: TodoModel){
-        Thread(Runnable {
-            mTodoDAO.insertTodo(todoModel)
-        }).start()
+        Observable.just(todoModel)
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    mTodoDAO.insertTodo(todoModel)
+                },{
+
+                }
+                )
     }
 }
