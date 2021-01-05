@@ -1,12 +1,16 @@
 package com.example.myapplication.view
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.service.autofill.OnClickAction
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.model.TodoModel
 import com.example.myapplication.view.adapter.TodoListAdapter
@@ -25,12 +29,36 @@ class secondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.livedatarecyclerview)
-
+        toast("hi")
         initRecyclerView()
         initAddButton()
         initViewModel()//observe 결합 코드는 oncreat 메소드내에 위치하는것이 바람직.
         btn_delt.setOnClickListener(View.OnClickListener {
             mTodoViewModel.delTodo()
+        })
+//        addOnItemTouchListener()
+
+
+    }
+
+    fun Context.toast(message: CharSequence) =
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+    private fun addOnItemTouchListener() {
+        rl_todo_list.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener{
+            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
+                Toast.makeText(this@secondActivity, "itemClicked", Toast.LENGTH_SHORT).show()
+
+            }
+
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
+                TODO("Not yet implemented")
+            }
+
         })
     }
 
@@ -67,24 +95,33 @@ class secondActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        mTodoListAdapter = TodoListAdapter().apply {
-            listener = object: TodoListAdapter.OnTodoItemClickListener{
-                override fun onTodoItemClick(position: Int) {
-                    Toast.makeText(this@secondActivity, "itemClicked", Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onTodoItemLongClick(position: Int) {
-                    Toast.makeText(this@secondActivity, "itemLONGClicked", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
 
         mTodoListAdapter = TodoListAdapter()
+
         rl_todo_list.run{
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@secondActivity)
             adapter = mTodoListAdapter
         }
+        mTodoListAdapter.setItemClickListener( object : TodoListAdapter.ItemClickListener{
+            override fun onTodoItemClick(view: View, position: Int) {
+                Toast.makeText(this@secondActivity, "itemClicked", Toast.LENGTH_SHORT).show()
+
+            }
+
+            override fun onTodoItemLongClick(view: View, position: Int) {
+                Toast.makeText(this@secondActivity, "itemLONGClicked", Toast.LENGTH_SHORT).show()
+
+            }
+//            override fun onTodoItemClick(position: Int) {
+//                Toast.makeText(this@secondActivity, "itemClicked", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onTodoItemLongClick(position: Int) {
+//                Toast.makeText(this@secondActivity, "itemLONGClicked", Toast.LENGTH_SHORT).show()
+//            }
+        })
+
     }
 }
 

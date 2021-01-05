@@ -8,7 +8,7 @@ class TodoListDIffCallback(val oldTodoList: List<TodoModel>, val newTodoList: Li
         return oldTodoList[oldItemPosition].id == newTodoList[newItemPosition].id
     }
 
-    override fun getOldListSize(): Int {;
+    override fun getOldListSize(): Int {
         return oldTodoList.size
     }
 

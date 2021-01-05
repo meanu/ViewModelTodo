@@ -2,6 +2,7 @@ package com.example.myapplication.view
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
@@ -17,7 +18,7 @@ class thirdActivity : AppCompatActivity() {
 
         rl_list.adapter = ThirdAdapter()
         rl_list.layoutManager = LinearLayoutManager(this)
-
+        Toast.makeText(this, "ag", Toast.LENGTH_SHORT).show()
 
     }
 }

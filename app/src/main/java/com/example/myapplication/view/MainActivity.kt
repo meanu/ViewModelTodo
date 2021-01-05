@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             val nextIntent = Intent(this, secondActivity::class.java)
             startActivity(nextIntent)
             overridePendingTransition(R.anim.slide_in_right,R.anim.hold)
-
+            // TODO: 2021-01-05 transition 만들기 
             }
 
         button2.setOnClickListener {
