@@ -90,8 +90,6 @@ class TodoListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             return simpleDateFormat.format((Date(this)))
         }
 
-
     }
-
 
 }

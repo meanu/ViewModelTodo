@@ -1,7 +1,11 @@
 package com.example.myapplication.view
 
+import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.transition.Slide
+import android.view.Gravity
+import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +17,14 @@ import kotlinx.android.synthetic.main.third_layout.*
 
 class thirdActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            with(window) {
+                requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
+                // set an slide transition
+                enterTransition = Slide(Gravity.TOP)
+                exitTransition = Slide(Gravity.BOTTOM)
+            }
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.third_layout)
 

@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
 //        scene1 = Scene.getSceneForLayout(rootContainer,
 //            R.layout.scene1_layout, this)
-//
+
 //        scene2 = Scene.getSceneForLayout(rootContainer,
 //            R.layout.scene2_layout, this)
 
@@ -45,13 +45,18 @@ class MainActivity : AppCompatActivity() {
 //        tm.setTransition(R.anim.slide_in_right, R.anim.slide_out_right,null)
         button1.setOnClickListener {
             val nextIntent = Intent(this, secondActivity::class.java)
-            startActivity(nextIntent)
-            overridePendingTransition(R.anim.slide_in_right,R.anim.hold)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                startActivity(nextIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+            }
+//            overridePendingTransition(R.anim.slide_in_right,R.anim.hold)
             // TODO: 2021-01-05 transition 만들기 
             }
 
         button2.setOnClickListener {
             val nextIntent = Intent(this, thirdActivity::class.java)
-            startActivity(nextIntent)   }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                startActivity(nextIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+            }
+        }
     }
 }
