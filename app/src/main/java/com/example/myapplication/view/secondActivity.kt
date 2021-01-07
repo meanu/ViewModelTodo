@@ -35,7 +35,7 @@ class secondActivity : AppCompatActivity() {
             with(window) {
                 requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
                 // set an slide transition
-                enterTransition = Slide(Gravity.RIGHT)
+                enterTransition = Slide(Gravity.LEFT)
                 exitTransition = Slide(Gravity.RIGHT)
             }
         }
@@ -99,6 +99,8 @@ class secondActivity : AppCompatActivity() {
 
             override fun onTodoItemLongClick(view: View, position: Int) {
                 toast("itemLongClicked")
+                mTodoViewModel.delTodo()
+
             }
         })
     }
