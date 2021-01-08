@@ -21,6 +21,7 @@ import com.example.myapplication.view.adapter.TodoListAdapter
 import com.example.myapplication.viewmodel.TodoViewModel
 import kotlinx.android.synthetic.main.livedatarecyclerview.*
 import kotlinx.android.synthetic.main.dialog_layout.view.*
+import kotlinx.android.synthetic.main.item_todo.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -44,9 +45,9 @@ class secondActivity : AppCompatActivity() {
         initRecyclerView()
         initAddButton()
         initViewModel()//observe 결합 코드는 oncreat 메소드내에 위치하는것이 바람직.
-        btn_delt.setOnClickListener(View.OnClickListener {
-            mTodoViewModel.delTodo()
-        })
+//        btn_delt.setOnClickListener(View.OnClickListener {
+//            mTodoViewModel.delTodo()
+//        })
     }
 
     fun Context.toast(message: CharSequence) =
@@ -99,7 +100,8 @@ class secondActivity : AppCompatActivity() {
 
             override fun onTodoItemLongClick(view: View, position: Int) {
                 toast("itemLongClicked")
-                mTodoViewModel.delTodo()
+
+                mTodoViewModel.delTodo(view.tv_todo_title.text as String)
 
             }
         })

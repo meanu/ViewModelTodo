@@ -16,8 +16,8 @@ interface TodoDAO {
     @Insert
     fun insertTodo(todoModel: TodoModel)
 
-    @Query("DELETE FROM ToDo")
-     fun deleteUser()
+    @Query("DELETE FROM ToDo WHERE title= :string")
+     fun deleteUser(string: String)
 }
 //이곳에서 LIVEDATA 라는것이 사용 되었다.
 //Livedata는 액티비티의 생명주기를 인식하고 활동

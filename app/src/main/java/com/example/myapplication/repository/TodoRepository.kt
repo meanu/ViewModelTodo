@@ -2,7 +2,6 @@ package com.example.myapplication.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import com.example.myapplication.TodoDAO.TodoDAO
 import com.example.myapplication.TodoDAO.TodoDatabase
 import com.example.myapplication.model.TodoModel
@@ -24,9 +23,9 @@ class TodoRepository(application: Application) {
         return mTodoItems
     }
 
-    fun delTodo(){
+    fun delTodo(title: String) {
         Thread(Runnable {
-        mTodoDAO.deleteUser()
+        mTodoDAO.deleteUser(title)
         }).start()
 
     }

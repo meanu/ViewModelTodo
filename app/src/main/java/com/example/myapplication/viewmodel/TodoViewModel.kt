@@ -23,8 +23,8 @@ class TodoViewModel(application: Application): AndroidViewModel(application){
         return mTodoItems
     }
 
-    fun delTodo(){
-        mTodoRepository.delTodo()
+    fun delTodo(title:String){
+        mTodoRepository.delTodo(title)
     }
 
 }
