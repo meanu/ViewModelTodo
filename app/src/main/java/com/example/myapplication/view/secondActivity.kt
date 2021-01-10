@@ -44,7 +44,9 @@ class secondActivity : AppCompatActivity() {
         setContentView(R.layout.livedatarecyclerview)
         initRecyclerView()
         initAddButton()
-        initViewModel()//observe 결합 코드는 oncreat 메소드내에 위치하는것이 바람직.
+        initViewModel()
+
+        //observe 결합 코드는 oncreat 메소드내에 위치하는것이 바람직.
 //        btn_delt.setOnClickListener(View.OnClickListener {
 //            mTodoViewModel.delTodo()
 //        })
@@ -100,7 +102,7 @@ class secondActivity : AppCompatActivity() {
 
             override fun onTodoItemLongClick(view: View, position: Int) {
                 toast("itemLongClicked")
-
+                // TODO: 2021-01-09 when it has same name, there is an issue
                 mTodoViewModel.delTodo(view.tv_todo_title.text as String)
 
             }
