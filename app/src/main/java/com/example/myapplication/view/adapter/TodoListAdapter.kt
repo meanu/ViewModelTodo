@@ -33,17 +33,17 @@ class TodoListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     }
 
     fun setTodoItems(todoItems: List<TodoModel>){
-
         // DiffUtil은 시간복잡도가 높다. 그렇기 때문에 별도의 쓰레드에서 작업하는 것이 더 좋은 방법이 될 수 있다. Rx를 활용하여 코드를 수정 해 보자.
-        Observable.just(todoItems)
-        .subscribeOn(AndroidSchedulers.mainThread())
-        .observeOn(Schedulers.io())
-        .map { DiffUtil.calculateDiff(TodoListDIffCallback(this.todoItems, todoItems)) }
-        .subscribe({
-            this.todoItems = todoItems
-            it.dispatchUpdatesTo(this) },     // TODO: 2021-01-04 adapter에 notify가 안됨
-        { })
-
+//        Observable.just(todoItems)
+//        .subscribeOn(AndroidSchedulers.mainThread())
+//        .observeOn(Schedulers.io())
+//        .map { DiffUtil.calculateDiff(TodoListDIffCallback(this.todoItems, todoItems)) }
+//        .subscribe({
+//            this.todoItems = todoItems
+//            it.dispatchUpdatesTo(this) },     // TODO notify가 안되요
+//        { })
+        this.todoItems = todoItems
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

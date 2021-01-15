@@ -94,7 +94,6 @@ class secondActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@secondActivity)
             adapter = mTodoListAdapter
         }
-
         mTodoListAdapter.setItemClickListener( object : TodoListAdapter.ItemClickListener{
             override fun onTodoItemClick(view: View, position: Int) {
                 toast("itemClicked")
