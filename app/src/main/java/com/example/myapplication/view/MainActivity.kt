@@ -49,14 +49,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(nextIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
             }
 //            overridePendingTransition(R.anim.slide_in_right,R.anim.hold)
-            // TODO: 2021-01-05 transition 만들기 
-            }
-
-        button2.setOnClickListener {
-            val nextIntent = Intent(this, thirdActivity::class.java)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                startActivity(nextIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
-            }
         }
     }
 }
