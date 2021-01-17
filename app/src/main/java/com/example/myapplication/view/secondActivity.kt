@@ -71,9 +71,9 @@ class secondActivity : AppCompatActivity() {
     private fun openAddTodoDialog() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_layout, null)
         val dialog = AlertDialog.Builder(this)
-                .setTitle("ADD")
+                .setTitle("Add TODOLIST")
                 .setView(dialogView)
-                .setPositiveButton("확인",  {dialoginterface, i ->
+                .setPositiveButton("CONFIRM",  {dialoginterface, i ->
                     val title =dialogView.et_todo_title.text.toString()
                     val description = dialogView.et_todo_desc.text.toString()
                     val createdDate = Date().time
@@ -82,7 +82,7 @@ class secondActivity : AppCompatActivity() {
                     //전달되면 ROOM에의해 삽입되면서 할당된다.
                     mTodoViewModel.insertTodo(todoModel)
                 })
-                .setNegativeButton("취소", null)
+                .setNegativeButton("CANCLE", null)
                 .create()
         dialog.show()
     }
