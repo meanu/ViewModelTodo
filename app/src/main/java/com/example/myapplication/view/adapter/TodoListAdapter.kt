@@ -19,7 +19,8 @@ import java.util.*
 class TodoListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     //TodoListAdapter 생성자에서 리스트를 받았엇는데
     private var todoItems: List<TodoModel> = listOf()
-//    private val asyncListDIffer = AsyncListDiffer(this, TodoListDIffCallback)
+    private val asyncListDIffer = AsyncListDiffer(this, DiffUtilCallBack())
+
     interface ItemClickListener {
         fun onTodoItemClick(view: View,position: Int)
         fun onTodoItemLongClick(view: View,position: Int)
