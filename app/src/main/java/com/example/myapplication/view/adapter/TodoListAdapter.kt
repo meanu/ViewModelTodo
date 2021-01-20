@@ -45,6 +45,7 @@ class TodoListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 //        { })
         this.todoItems = todoItems
         notifyDataSetChanged()
+//        asyncListDIffer.submitList(todoItems)
     }
 
     override fun getItemCount(): Int {
