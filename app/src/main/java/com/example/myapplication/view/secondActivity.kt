@@ -19,9 +19,9 @@ import com.example.myapplication.R
 import com.example.myapplication.model.TodoModel
 import com.example.myapplication.view.adapter.TodoListAdapter
 import com.example.myapplication.viewmodel.TodoViewModel
-import kotlinx.android.synthetic.main.livedatarecyclerview.*
 import kotlinx.android.synthetic.main.dialog_layout.view.*
 import kotlinx.android.synthetic.main.item_todo.view.*
+import kotlinx.android.synthetic.main.livedatarecyclerview.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -59,7 +59,7 @@ class secondActivity : AppCompatActivity() {
     }
 
     private fun initAddButton() {
-        btn_add_todo.setOnClickListener {
+        1   tbtn_add_todo.setOnClickListener {
             openAddTodoDialog()
         }
     }

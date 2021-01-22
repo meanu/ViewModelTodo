@@ -15,7 +15,6 @@ import com.example.myapplication.model.TodoModel
 import com.example.myapplication.view.adapter.TodoListAdapter
 import com.example.myapplication.viewmodel.TodoViewModel
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.livedatarecyclerview.*
 import kotlinx.android.synthetic.main.dialog_layout.view.*
 import java.util.*
 import kotlin.collections.ArrayList
