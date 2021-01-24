@@ -59,7 +59,7 @@ class secondActivity : AppCompatActivity() {
     }
 
     private fun initAddButton() {
-        1   tbtn_add_todo.setOnClickListener {
+        btn_add_todo.setOnClickListener {
             openAddTodoDialog()
         }
     }

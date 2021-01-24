@@ -83,9 +83,9 @@ class TodoListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         }
 
         fun bind(todoModel: TodoModel){
-            title.text = todoModel.title
-            description.text = todoModel.description
-            createdDate.text = todoModel.createdDate.toDateString("yyyy.MM.dd HH:mm")
+//            title.text = todoModel.title
+//            description.text = todoModel.description
+//            createdDate.text = todoModel.createdDate.toDateString("yyyy.MM.dd HH:mm")
         }
 
         fun Long.toDateString(foramt: String): String {
