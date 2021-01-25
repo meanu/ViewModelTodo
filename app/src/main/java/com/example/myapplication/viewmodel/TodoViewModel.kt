@@ -10,6 +10,7 @@ class TodoViewModel(application: Application): AndroidViewModel(application){
     private val mTodoRepository: TodoRepository
     private var mTodoItems: LiveData<List<TodoModel>>
 
+
     init {
         mTodoRepository = TodoRepository(application)
         mTodoItems = mTodoRepository.getTodoList()
