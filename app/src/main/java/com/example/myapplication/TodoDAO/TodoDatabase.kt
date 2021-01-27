@@ -8,7 +8,7 @@ import com.example.myapplication.model.TodoModel
 
 @Database(entities = [TodoModel::class], version = 1)
 abstract class TodoDatabase: RoomDatabase() {
-    abstract fun todoDao(): TodoDAO
+    abstract fun getTodoDao(): TodoDAO
 
     companion object{
         @Volatile private var INSTANCE: TodoDatabase? = null

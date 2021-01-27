@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.myapplication.model.TodoModel
+import javax.sql.DataSource
 
 @Dao
 interface TodoDAO {
@@ -18,6 +19,9 @@ interface TodoDAO {
 
     @Query("DELETE FROM ToDo WHERE title= :string")
      fun deleteUser(string: String)
+
+    @Query("SELECT * from Todo ORDER BY createdDate ASC")
+    fun findAll(): androidx.paging.DataSource.Factory<Int, TodoModel>
 }
 //이곳에서 LIVEDATA 라는것이 사용 되었다.
 //Livedata는 액티비티의 생명주기를 인식하고 활동
