@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.model.TodoModel
 import com.example.myapplication.view.adapter.TodoListAdapter
+import com.example.myapplication.view.third.ThirdActivity
 import com.example.myapplication.viewmodel.TodoViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_layout.view.*
@@ -28,6 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         button1.setOnClickListener {
             val nextIntent = Intent(this, secondActivity::class.java)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                startActivity(nextIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+            }
+        }
+        button2.setOnClickListener {
+            val nextIntent = Intent(this, ThirdActivity::class.java)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 startActivity(nextIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
             }

@@ -5,8 +5,9 @@
 
     <data>
         <variable
-            name="todo"
-            type="com.example.myapplication.viewmodel." />
+            name="todoitems"
+            type="com.example.myapplication.model.TodoModel" />
+        <variable name="vm" type="com.example.myapplication.view.third.ThirdViewModel"/>
 
     </data>
 
@@ -19,7 +20,7 @@
             android:id="@+id/tv_todo_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{todo.title}"
+            android:text="@{todoitems.title}"
             android:textColor="#000000"
             android:textSize="16dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{todo.description}"
+            android:text="@{todoitems.description}"
             android:textColor="#808080"
             android:textSize="12dp"
             app:layout_constraintTop_toBottomOf="@+id/tv_todo_title"

@@ -15,7 +15,7 @@ class TodoRepository(application: Application) {
 
     init {//init 은 전역변수 정하는듯함.
         mTodoDatabase = TodoDatabase.getInstance(application)
-        mTodoDAO = mTodoDatabase.todoDao()
+        mTodoDAO = mTodoDatabase.getTodoDao()
         mTodoItems = mTodoDAO.getTodoList()
 
     }
