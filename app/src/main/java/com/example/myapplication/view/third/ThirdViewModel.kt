@@ -8,7 +8,12 @@ import com.example.myapplication.core.BaseViewModel
 import com.example.myapplication.model.TodoModel
 
 class ThirdViewModel(private val dao: TodoDAO) : BaseViewModel() {
-    val items: LiveData<PagedList<TodoModel>> = LivePagedListBuilder(dao.findAll(),  /* page size */ 1).build()
+    val items: LiveData<PagedList<TodoModel>> = LivePagedListBuilder(dao.findAll(),  /* page size */ 10).build()
 
-//    fun delete(todoModel: TodoModel) = ioThread { dao.delete(bookmark) }
+    fun delTodo(title: String) {
+        Thread(Runnable {
+            dao.deleteUser(title)
+        }).start()
+
+    }
 }
