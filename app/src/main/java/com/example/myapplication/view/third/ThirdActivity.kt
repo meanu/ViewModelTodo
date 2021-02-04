@@ -1,7 +1,6 @@
 package com.example.myapplication.view.third
 
 import android.os.Bundle
-import android.view.Menu
 import androidx.annotation.LayoutRes
 import com.example.myapplication.R
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -13,7 +12,6 @@ class ThirdActivity : BindingActivity<ThirdLayoutBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding.vm = getViewModel()
         binding.setLifecycleOwner(this)
     }
