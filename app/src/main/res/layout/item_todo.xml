@@ -7,7 +7,8 @@
         <variable
             name="todoitems"
             type="com.example.myapplication.model.TodoModel" />
-        <variable name="vm" type="com.example.myapplication.view.third.ThirdViewModel"/>
+        <variable name="vm"
+            type="com.example.myapplication.view.third.ThirdViewModel"/>
 
     </data>
 
