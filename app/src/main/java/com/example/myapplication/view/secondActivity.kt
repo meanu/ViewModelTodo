@@ -75,7 +75,7 @@ class secondActivity : AppCompatActivity() {
                     val createdDate = Date().time
                     val todoModel  = TodoModel(null, title, description, createdDate)
                     //전달되면 ROOM에의해 삽입되면서 할당된다.
-                    mTodoViewModel.insertTodo(todoModel)
+//                    mTodoViewModel.insertTodo(todoModel)
                 })
                 .setNegativeButton("CANCLE", null)
                 .create()

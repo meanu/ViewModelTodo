@@ -13,7 +13,7 @@ data class TodoModel( // Use the Room to make this page.
         @ColumnInfo(name = "description")
         var description: String,
         @ColumnInfo(name = "createdDate")
-        var createdDate: Long
+        var createdDate: String
 ){
-constructor(): this(null,"","",-1)
+constructor(): this(null,"","","")
 }

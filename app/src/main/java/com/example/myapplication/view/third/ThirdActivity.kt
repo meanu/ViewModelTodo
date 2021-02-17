@@ -1,15 +1,19 @@
 package com.example.myapplication.view.third
 
+import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
 import androidx.annotation.LayoutRes
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.example.myapplication.R
-import org.koin.androidx.viewmodel.ext.android.getViewModel
 import com.example.myapplication.databinding.ThirdLayoutBinding
 import com.example.myapplication.model.TodoModel
 import kotlinx.android.synthetic.main.dialog_layout.view.*
 import kotlinx.android.synthetic.main.third_layout.*
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class ThirdActivity : BindingActivity<ThirdLayoutBinding>() {
@@ -31,12 +35,16 @@ class ThirdActivity : BindingActivity<ThirdLayoutBinding>() {
                 .setTitle("Add TODOLIST")
                 .setView(dialogView)
                 .setPositiveButton("CONFIRM",  {dialoginterface, i ->
+
                     val title =dialogView.et_todo_title.text.toString()
                     val description = dialogView.et_todo_desc.text.toString()
-                    val createdDate = Date().time
-                    val todoModel  = TodoModel(null, title, description, createdDate)
+
+                    val currentDateTime = Calendar.getInstance().time
+                    val createdDate = SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA).format(currentDateTime)
+                    val todoModel = TodoModel(null, title, description, createdDate)
+
                     //전달되면 ROOM에의해 삽입되면서 할당된다.
-                    val model : ThirdViewModel = getViewModel ()
+                    val model : ThirdViewModel = getViewModel()
                     model.insertTodo(todoModel)
                 })
                 .setNegativeButton("CANCLE", null)
