@@ -38,7 +38,6 @@ class ThirdActivity : BindingActivity<ThirdLayoutBinding>() {
 
                     val title =dialogView.et_todo_title.text.toString()
                     val description = dialogView.et_todo_desc.text.toString()
-
                     val currentDateTime = Calendar.getInstance().time
                     val createdDate = SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA).format(currentDateTime)
                     val todoModel = TodoModel(null, title, description, createdDate)

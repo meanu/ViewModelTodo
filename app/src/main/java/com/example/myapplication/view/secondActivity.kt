@@ -73,7 +73,7 @@ class secondActivity : AppCompatActivity() {
                     val title =dialogView.et_todo_title.text.toString()
                     val description = dialogView.et_todo_desc.text.toString()
                     val createdDate = Date().time
-                    val todoModel  = TodoModel(null, title, description, createdDate)
+//                    val todoModel  = TodoModel(null, title, description, createdDate)
                     //전달되면 ROOM에의해 삽입되면서 할당된다.
 //                    mTodoViewModel.insertTodo(todoModel)
                 })
@@ -97,7 +97,6 @@ class secondActivity : AppCompatActivity() {
 
             override fun onTodoItemLongClick(view: View, position: Int) {
                 toast("itemLongClicked")
-                // TODO: 2021-01-09 when it has same name, there is an issue
                 mTodoViewModel.delTodo(view.tv_todo_title.text as String)
 
             }

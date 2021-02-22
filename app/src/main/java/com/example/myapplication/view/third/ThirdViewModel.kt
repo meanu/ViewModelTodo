@@ -13,9 +13,12 @@ class ThirdViewModel(private val dao: TodoDAO) : ViewModel() {
     val items: LiveData<PagedList<TodoModel>> = LivePagedListBuilder(dao.findAll(),  /* page size */ 10).build()
 
     fun delTodo(title: String) {
-        Thread(Runnable {
-            dao.deleteUser(title)
-        }).start()
+        Observable.just(title)
+            .subscribeOn(Schedulers.io())
+            .subscribe({
+                dao.deleteUser(title)
+            }
+        )
     }
 
     fun insertTodo(todoModel: TodoModel){
@@ -23,9 +26,7 @@ class ThirdViewModel(private val dao: TodoDAO) : ViewModel() {
             .subscribeOn(Schedulers.io())
             .subscribe({
                 dao.insertTodo(it)
-            },{
-
             }
-            )
+        )
     }
 }
