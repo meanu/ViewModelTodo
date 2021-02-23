@@ -6,9 +6,9 @@
     <data>
         <variable
             name="todoitems"
-            type="com.example.myapplication.model.TodoModel" />
+            type="com.meanu.mvvmtodolist.model.TodoModel" />
         <variable name="vm"
-            type="com.example.myapplication.view.third.ThirdViewModel"/>
+            type="com.meanu.mvvmtodolist.view.third.ThirdViewModel"/>
 
     </data>
 

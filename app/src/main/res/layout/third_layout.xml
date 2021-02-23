@@ -6,13 +6,13 @@
     <data>
         <variable
             name="todoitems"
-            type="com.example.myapplication.model.TodoModel" />
+            type="com.meanu.mvvmtodolist.model.TodoModel" />
         <variable
             name="vm"
-            type="com.example.myapplication.view.third.ThirdViewModel" />
+            type="com.meanu.mvvmtodolist.view.third.ThirdViewModel" />
         <variable
             name="ta"
-            type="com.example.myapplication.view.third.ThirdActivity" />
+            type="com.meanu.mvvmtodolist.view.third.ThirdActivity" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
