@@ -8,7 +8,7 @@
             name="todoitems"
             type="com.meanu.mvvmtodolist.model.TodoModel" />
         <variable name="vm"
-            type="com.meanu.mvvmtodolist.view.third.ThirdViewModel"/>
+            type="com.meanu.mvvmtodolist.view.ui.TodoViewModel"/>
 
     </data>
 

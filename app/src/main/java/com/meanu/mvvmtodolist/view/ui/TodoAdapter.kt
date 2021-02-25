@@ -1,4 +1,4 @@
-package com.meanu.mvvmtodolist.view.third
+package com.meanu.mvvmtodolist.view.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import com.meanu.mvvmtodolist.R
 import com.meanu.mvvmtodolist.databinding.ItemTodoBinding
 import com.meanu.mvvmtodolist.model.TodoModel
 
-class TodoAdapter (val vm: ThirdViewModel) :
+class TodoAdapter (val vm: TodoViewModel) :
         PagedListAdapter<TodoModel, TodoAdapter.TodoViewHolder>(DIFF_CALLBACK) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {

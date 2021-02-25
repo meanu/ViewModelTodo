@@ -1,4 +1,4 @@
-package com.meanu.mvvmtodolist.view.third
+package com.meanu.mvvmtodolist.view.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +9,7 @@ import com.meanu.mvvmtodolist.model.TodoModel
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 
-class ThirdViewModel(private val dao: TodoDAO) : ViewModel() {
+class TodoViewModel(private val dao: TodoDAO) : ViewModel() {
     val items: LiveData<PagedList<TodoModel>> = LivePagedListBuilder(dao.findAll(),  /* page size */ 10).build()
 
     fun delTodo(title: String) {

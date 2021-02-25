@@ -1,6 +1,5 @@
 package com.meanu.mvvmtodolist.view
 
-import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -11,7 +10,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.meanu.mvvmtodolist.R
-import com.meanu.mvvmtodolist.view.third.ThirdActivity
+import com.meanu.mvvmtodolist.view.ui.TodoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,15 +21,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val ab: ActionBar? = supportActionBar
         ab?.setTitle("Stelli")
-        button1.setOnClickListener {
-            val nextIntent = Intent(this, secondActivity::class.java)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                startActivity(nextIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
 
-            }
-        }
         button2.setOnClickListener {
-            startActivity(Intent(this, ThirdActivity::class.java))
+            startActivity(Intent(this, TodoActivity::class.java))
         }
     }
 

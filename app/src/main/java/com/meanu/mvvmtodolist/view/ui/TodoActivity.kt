@@ -1,4 +1,4 @@
-package com.meanu.mvvmtodolist.view.third
+package com.meanu.mvvmtodolist.view.ui
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
@@ -12,7 +12,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ThirdActivity : BindingActivity<ThirdLayoutBinding>() {
+class TodoActivity : BindingActivity<ThirdLayoutBinding>() {
     @LayoutRes
     override fun getLayoutResId() = R.layout.third_layout
 
@@ -39,7 +39,7 @@ class ThirdActivity : BindingActivity<ThirdLayoutBinding>() {
                     val todoModel = TodoModel(null, title, description, createdDate)
 
                     //전달되면 ROOM에의해 삽입되면서 할당된다.
-                    val model : ThirdViewModel = getViewModel()
+                    val model : TodoViewModel = getViewModel()
                     model.insertTodo(todoModel)
                 })
                 .setNegativeButton("CANCLE", null)

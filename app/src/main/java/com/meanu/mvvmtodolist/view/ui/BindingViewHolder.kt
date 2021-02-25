@@ -1,4 +1,4 @@
-package com.meanu.mvvmtodolist.view.third
+package com.meanu.mvvmtodolist.view.ui
 
 import android.view.View
 import androidx.databinding.DataBindingUtil
