@@ -12,6 +12,14 @@
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
     </style>
 
+
+    <!-- This style is for the splash screen -->
+    <style name="Theme.MyApplication.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
     <style name="AppTheme.ActionBar" parent="Widget.AppCompat.Light.ActionBar">
         <item name="android:titleTextStyle">@style/AppTheme.ActionBar.TitleText</item>
         <item name="titleTextStyle">@style/AppTheme.ActionBar.TitleText</item>
